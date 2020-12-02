@@ -6,9 +6,10 @@
 }
 body{
     font-family :'Poppins',sans-serif;
- /*   background-color:#db3ac0;*/
+    
+ /*   background-color:#db3ac0;
+*/
 }
-
 .container{
    width: 100vw;
    height:100vh;
@@ -16,7 +17,11 @@ body{
    grid-template-columns: repeat(2,1fr);
    grid-gap:7rem;
    padding:0 2rem ;
+   margin: 20 20 20 20;
 
+}
+.container a{
+    position: center;
 }
 .img{
     display: flex;
@@ -148,15 +153,16 @@ a:hover{
 	background-position: right;
 }
 
-.custom-select {
+#position {
     font-family: sans-serif;
-    margin-left: 32px;
-    align-items: center;
-    
+    font-size: 15px;
+    margin-top: 25px;
+    margin-left: 10px;
 
   }
 
   
   .custom-select select {
     font-size: 15px;
+    
   }

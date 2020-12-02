@@ -2,7 +2,7 @@
 const userHashId = location.hash.substring(1);
 console.log(userHashId);
 
- let savedData = getSavedData();
+let savedData = getSavedData();
 const getSavedCred = getCredId(userHashId);
 console.log(getSavedCred);
 
@@ -26,31 +26,25 @@ document.querySelector("#pos").appendChild(pos);
 
 
 
-
-document.querySelector("#cancelmodal").addEventListener('click', e =>{
-  document.querySelector("#edit-modal").style.display = "none";
-})
-
-
-let edituser={
-  name:'',
-  id:userHashId,
-  email:'',
-  password:'',
-  dob:'',
-  position:''
+let edituser = {
+  name: '',
+  id: userHashId,
+  email: '',
+  password: '',
+  dob: '',
+  position: ''
 }
 
-document.querySelector("#editname").addEventListener("input",(e)=>{
-  edituser.name=e.target.value;
+document.querySelector("#editname").addEventListener("input", (e) => {
+  edituser.name = e.target.value;
 })
 
 document.querySelector("#editemail").addEventListener("input", (e) => {
   edituser.email = e.target.value;
 });
 document.querySelector("#editpassword").addEventListener("input", (e) => {
-     edituser.password= e.target.value;
-  
+  edituser.password = e.target.value;
+
 });
 document.querySelector("#editdate").addEventListener("change", (e) => {
   edituser.dob = e.target.value;
@@ -61,26 +55,43 @@ document.querySelector("#editposition").addEventListener("change", (e) => {
   edituser.position = e.target.value;
 });
 
-const index = savedData.findIndex(function (userobject){
-    return userobject.id === userHashId
- 
-    
+const index = savedData.findIndex(function (userobject) {
+  return userobject.id === userHashId
+
+
 })
 
 console.log(index, "index")
 
-document.querySelector("#submitmodal").addEventListener('click', (e) =>{
-    console.log(edituser)
-    savedData.splice(index,1,edituser)
-saveData(savedData)
+document.querySelector("#submitmodal").addEventListener('click', (e) => {
+  console.log(edituser)
+  savedData.splice(index, 1, edituser)
+  saveData(savedData)
+  document.querySelector("#modal1").style.display="none";
 })
 
 
-document.querySelector("#DeleteBtn").addEventListener('click', e =>{
-    alert("Are you sure you wanna delete user?")
-        savedData.splice(index,1)
-        saveData(savedData)
-      location.assign(`index.html`)  
-        
-    })
-    
+
+document.querySelector("#yesmodal").addEventListener('click', e => {
+
+  savedData.splice(index, 1)
+  saveData(savedData)
+  location.assign(`index.html`)
+
+})
+
+document.querySelector('#nomodal').addEventListener('click', e => {
+ document.querySelector("#edit-modal").style.display = "none";
+})
+      
+  
+
+document.querySelector('#LogoutBtn').addEventListener('click', e => {
+  location.assign(`index.html`)
+})
+
+document.querySelector("#cancelmodal").addEventListener('click', e => {
+  document.querySelector("#modal1").style.display = "none";
+})
+
+

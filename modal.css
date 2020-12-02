@@ -15,7 +15,7 @@
     justify-content: center;
   }
   
-  .button {
+  .modal-open {
     background: #428bca;
     padding: 1em 2em;
     color: #fff;
